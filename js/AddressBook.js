@@ -1,3 +1,4 @@
+//UC-1
 class AddressBook {
 
     constructor(...params) {
@@ -10,6 +11,7 @@ class AddressBook {
     this.phoneNumber = params[6];
     this.emailId = params[7];
 }
+//UC-2
 get firstName() { return this._firstName; }
 set firstName(firstName) {
 let nameRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$"); 
@@ -87,7 +89,7 @@ return "first Name: " + this.firstName + ", last Name: " + this.lastName+ "\nAdd
 + "\nState: " + this.state + "\nZipCode: " + this.zipCode + ", \nPhoneNumber: " + this.phoneNumber + ", \nemailId: " + this.emailId +"\n";   
   }
 }
-
+//UC-3
 let details = new Array();
 try {
     details.push(new AddressBook("Ismael","Whitlatch","2319  Burton Avenue","Memphis","Tennessee","256355","91 9017658987","sa5bxlla2e@temporarymail.net"));
@@ -101,22 +103,24 @@ catch(e)
     console.error(e);
 }
 Display();
-
 function Display(){
     details.forEach((contact) => console.log(contact.toString()));
 }
+
+//UC-4
 let index = details.findIndex(contact=>contact.firstName == 'David');
 details[index].lastName = 'Lopez';
 console.log("*********************************")
 console.log("Edited Address Book Successfully: ");
 Display();
 
-
+//UC-5
 details.splice(index, 1);
 console.log("*********************************")
 console.log("AddressBook after Contact deleted");
 Display();
 
+//UC-6
 let contactDetails=0;
 function getCount(details){
     if (details != null)
@@ -127,6 +131,7 @@ details.reduce(getCount,1);
 console.log("**********************************************************");
 console.log("Total Contacts : " + contactDetails);
 
+//UC-7
 let personContact = new AddressBook("Christopher","Forst","2846  Tori Lane","Saltlakecity","Utah","459867","91 8015870002","ctmgz50esj@temporarymail.net");
 if(details.some(e => e._lastName == "Forst"))
     console.log("Contact already Exists!");
@@ -136,21 +141,30 @@ else{
 }
 console.log("Array: ",details);
 
-let findByCity = details.filter((e) => e._city == 'Memphis');
+//UC-8
+let findByCity = details.filter((e) => e._city == 'DeLhi');
 console.log("Contacts by city: ",findByCity);
-
 let findByState = details.filter((e) => e._state == 'Tennessee');
-console.log("Contacts by state: ",findByState);	
+console.log("Contacts by state: ",findByState);
 
+
+//UC-9
 console.log(details.filter(contact => contact._city == "Memphis")
         .map(contact => contact.firstName));
-
 console.log(details.filter(contact => contact._state == "Tennessee")
         .map(contact => contact._firstName));
-
+//UC-10
 console.log(details.filter(contact => contact.city == "Saltlakecity")
         .reduce((count, contact) => contact.firstName ? ++count : count,0));
 console.log(details.filter(contact => contact.state == "Utah")
-            .reduce((count, contact) => contact.firstName ? ++count : count, 0));        
+            .reduce((count, contact) => contact.firstName ? ++count : count, 0)); 
 
-console.log(details.sort((a, b) => a.lastName.localeCompare(b.lastName)));            
+//UC-11
+console.log(details.sort((a, b) => a.lastName.localeCompare(b.lastName)));
+//UC-12
+console.log("Contact After Sorting City:-");
+console.log(details.sort((a, b) => a.city.localeCompare(b.city)))
+console.log("Contact After sorting State:-");
+console.log(details.sort((a, b) => a.state.localeCompare(b.state)));
+console.log("Contact After sorting zip:-");
+console.log(details.sort((a, b) => a.zipCode.localeCompare(b.zipCode)));
