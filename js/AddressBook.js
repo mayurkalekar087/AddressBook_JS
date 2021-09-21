@@ -135,3 +135,9 @@ else{
     console.log("Contact added succsefully");
 }
 console.log("Array: ",details);
+
+let findByCity = details.filter((e) => e._city == 'Memphis');
+console.log("Contacts by city: ",findByCity);
+
+let findByState = details.filter((e) => e._state == 'Tennessee');
+console.log("Contacts by state: ",findByState);	
