@@ -61,7 +61,7 @@ let zipRegex = RegExp("^[1-9]{1}[0-9]{5}$");
 if (zipRegex.test(zipCode))
     this._zipCode = zipCode;
 else
-    throw "Invalid zip";
+    throw "Invalid zipCode";
 }
     
 get phoneNumber() { return this._phoneNumber; }
@@ -70,7 +70,7 @@ let phoneRegex = RegExp("^[1-9]{2}[ ]{1}[0-9]{10}$");
 if (phoneRegex.test(phoneNumber))
     this._phoneNumber = phoneNumber;
 else
-    throw "Invalid phone number";
+    throw "Invalid phoneNumber";
 }
     
 get emailId() { return this._emailId; }
@@ -84,6 +84,24 @@ else
 
 toString() {
 return "first Name: " + this.firstName + ", last Name: " + this.lastName+ "\nAddress: " + this.address + ", \nCity: " + this.city
-+ ", State: " + this.state + " ZipCode: " + this.zipCode + ", \nPhoneNumber: " + this.phoneNumber + ", \nemailId: " + this.emailId +"\n";   
++ "\nState: " + this.state + "\nZipCode: " + this.zipCode + ", \nPhoneNumber: " + this.phoneNumber + ", \nemailId: " + this.emailId +"\n";   
   }
+}
+
+let details = new Array();
+try {
+    details.push(new AddressBook("Ismael","Whitlatch","2319  Burton Avenue","Memphis","Tennessee","256355","91 9017658987","sa5bxlla2e@temporarymail.net"));
+    details.push(new AddressBook("Christopher","Forst","2846  Tori Lane","Saltlakecity","Utah","459867","91 8015870002","ctmgz50esj@temporarymail.net"));  
+    details.push(new AddressBook("David","Washington","3379  Echo Lane","Memphis","Newmexico","589637","91 2699626511","wkephpw9q2@temporarymail.net"));
+    details.push(new AddressBook("Byron","Daniels","4385  West Street","Grandrapids","Michigan","456953","91 6165758233","6y4ug4knmib@temporarymail.net"));
+    details.push(new AddressBook("James","Juarez","12564  Clay Street","Indianapolis","Indiana","456938","91 3174103617","penlzpd00f@temporarymail.net"));     
+}
+catch(e)
+{
+    console.error(e);
+}
+Display();
+
+function Display(){
+    details.forEach((contact) => console.log(contact.toString()));
 }
