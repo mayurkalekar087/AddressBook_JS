@@ -126,3 +126,12 @@ function getCount(details){
 details.reduce(getCount,1);
 console.log("**********************************************************");
 console.log("Total Contacts : " + contactDetails);
+
+let personContact = new AddressBook("Christopher","Forst","2846  Tori Lane","Saltlakecity","Utah","459867","91 8015870002","ctmgz50esj@temporarymail.net");
+if(details.some(e => e._lastName == "Forst"))
+    console.log("Contact already Exists!");
+else{
+    details.push(personContact);
+    console.log("Contact added succsefully");
+}
+console.log("Array: ",details);
