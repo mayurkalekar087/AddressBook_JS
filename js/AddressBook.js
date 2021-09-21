@@ -141,3 +141,9 @@ console.log("Contacts by city: ",findByCity);
 
 let findByState = details.filter((e) => e._state == 'Tennessee');
 console.log("Contacts by state: ",findByState);	
+
+console.log(details.filter(contact => contact._city == "Memphis")
+        .map(contact => contact.firstName));
+
+console.log(details.filter(contact => contact._state == "Tennessee")
+        .map(contact => contact._firstName));
